@@ -1,0 +1,22 @@
+{
+  "name": "com.outsystems.credolab.plugin",
+  "version": "1.0.0",
+  "description": "CredoLab Plugin to collect data from the user (Calendar, Contacts, etc..) using CredoLab SDK",
+  "cordova": {
+    "id": "com.outsystems.credolab.plugin",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+  },
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Paulo Cesar Camilo",
+  "license": "MIT"
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" id="com.outsystems.credolab.plugin" version="1.0.0">
+    <name>CredoLabPlugin</name>
+    <description>CredoLab Plugin to collect data from the user (Calendar, Contacts, etc..) using CredoLab SDK</description>
+    <license>MIT</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines> 
+ 
+    <js-module src="www/CredoLabPlugin.js" name="CredoLabPlugin">
+        <clobbers target="cordova.plugins.CredoLabPlugin" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        
+        <config-file target="config.xml" parent="/*">
+            <feature name="CredoLabPlugin">
+                <param name="ios-package" value="CredoLabPlugin"/>
+            </feature>
+        </config-file>
+        
+        <framework src="CredoAppCoreXyz" type="podspec" spec="~> X.Y.Z" />
+        <framework src="CredoAppMusic" type="podspec" spec="~> X.Y.Z" />
+        <source-file src="src/ios/CredoLabPlugin.swift" />
+
+    </platform>
+    
+    <!-- android -->
+    <platform name="android">
+
+         <config-file target="res/xml/config.xml" parent="/*">
+            <!-- Change this to your plugin name -->
+            <feature name="CredoLabPlugin">
+                <!-- Change this to reflect the name of the package in your android source files -->
+                <param name="android-package" value="com.outsystems.credolab.plugin.CredoLabPlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.READ_CONTACTS" />
+            <uses-permission android:name="android.permission.READ_CALENDAR" />
+            <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+            <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> 
+            <uses-permission android:name="android.permission.READ_SMS" />
+        </config-file>
+ 
+        <source-file src="src/android/CredoLabPlugin.java" target-dir="src/com/outsystems/credolab/plugin" />
+
+        <framework src="com.google.code.gson:gson:2.8.5" />
+        <framework src="com.credolab:modular.core.proxy.encrypt:2.3.0" />
+        <framework src="com.credolab:modular.media:2.1.0" />
+        <framework src="com.credolab:modular.account:2.1.0" />
+        <framework src="com.credolab:modular.calendar:2.1.0" />
+        <framework src="com.credolab:modular.contact:2.1.0" />
+        <framework src="com.credolab:modular.sms:2.1.0" />
+    
+    </platform>          
+</plugin>
